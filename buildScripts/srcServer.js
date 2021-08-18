@@ -5,6 +5,7 @@ import webpack from "webpack";
 import config from "../webpack.config.dev";
 /**Open stuff like URLs, files, executables. Cross-platform. */
 import open from "open";
+/*eslint-disable no-console */
 const port = 3000;
 /**create an instance of express and set that to app*/
 const app = express();
