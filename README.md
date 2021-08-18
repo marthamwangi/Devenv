@@ -9,8 +9,9 @@ Bower, npm, jspm, jam, volo
 # Development web servers
 
 1. `http-server`
-   -ultra-simple
-   -single command servers current directory
+
+   - ultra-simple
+   - single command servers current directory
 
 2. `express`
 
@@ -45,7 +46,7 @@ Bower, npm, jspm, jam, volo
    ```bash
    npm i localtunnel - or npm install -g localtunnel
    lt --port portNumber or npx localtunnel --port 8000
-   **_own subdomain_**
+   own subdomain
    lt --port 8000 --subdomain anyname
    **_ you can combine localtunnel with browsersync_**
    ctrl+c kills the process and you can no longer see the domain - throws error 404
