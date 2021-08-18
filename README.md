@@ -8,23 +8,23 @@ Bower, npm, jspm, jam, volo
 
 # Development web servers
 
-1. **http-server**
+1. `http-server`
    ultra-simple
    single command servers current directory
 
-2. **express**
+2. `express`
    comprehensive
    Highly configurable
    production grade
    can run it everywhere
    competitors: koa and hapi
 
-3. **webpack dev server**
+3. `webpack dev server`
    built in to webpack
    seves from memory
    includes hot loading
 
-4. **browsersync**
+4. `browsersync`
    dedicated ip for shairing work on lan
    all interactions remain in sync
    great for cross-device testing
@@ -32,7 +32,7 @@ Bower, npm, jspm, jam, volo
 
 # shairing work-in-progress
 
-1. **localtunnel**
+1. `localtunnel`
    Easily share work on your local machine by punching a hole on your firewall
    lower friction to get setup
    ultra versatile
@@ -46,7 +46,7 @@ Bower, npm, jspm, jam, volo
    **_ you can combine localtunnel with browsersync_**
    ctrl+c kills the process and you can no longer see the domain - throws error 404
 
-2. **ngrok**
+2. `ngrok`
    secure tunnel to your local machine
 
    # setup:
@@ -57,7 +57,7 @@ Bower, npm, jspm, jam, volo
    start your app
    ./ngrok http portNumber
 
-3. **surge**
+3. `surge`
    extreme simplicity
    quickly host static files to public url no node.js files
    no firewall hole
@@ -68,7 +68,7 @@ Bower, npm, jspm, jam, volo
    npm i -g surge
    surge
 
-4. **vercel**
+4. `vercel`
    Quickly deploy node.js to the cloud
    no need to keep your machine
    # setup:
