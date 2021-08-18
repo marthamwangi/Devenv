@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "node buildScripts/startMessage.js",
     "start": "node buildScripts/srcServer.js",
-    "localtunnel": "npx localtunnel --port 5000 --subdomain turing",
+    "localtunnel": "npx localtunnel --port 3000 --subdomain turing",
     "share": "npm-run-all --parallel start localtunnel"
   },
   "repository": {
