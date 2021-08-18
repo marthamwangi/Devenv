@@ -51,6 +51,7 @@ Bower, npm, jspm, jam, volo
    npx localtunnel --port 8000 --subdomain marty
    **_ you can combine localtunnel with browsersync_**
    ctrl+c kills the process and you can no longer see the domain - throws error 404
+   Error: listen EADDRINUSE: address already in use :::3000
    ```
 
 2. `ngrok`
