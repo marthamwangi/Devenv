@@ -9,69 +9,82 @@ Bower, npm, jspm, jam, volo
 # Development web servers
 
 1. `http-server`
-   ultra-simple
-   single command servers current directory
+   -ultra-simple
+   -single command servers current directory
 
 2. `express`
-   comprehensive
-   Highly configurable
-   production grade
-   can run it everywhere
-   competitors: koa and hapi
+
+   - comprehensive
+   - Highly configurable
+   - production grade
+   - can run it everywhere
+   - competitors: koa and hapi
 
 3. `webpack dev server`
-   built in to webpack
-   seves from memory
-   includes hot loading
+
+   - built in to webpack
+   - seves from memory
+   - includes hot loading
 
 4. `browsersync`
-   dedicated ip for shairing work on lan
-   all interactions remain in sync
-   great for cross-device testing
-   intergrates with webpack, express, browserify, gulp
+   - dedicated ip for shairing work on lan
+   - all interactions remain in sync
+   - great for cross-device testing
+   - intergrates with webpack, express, browserify, gulp
 
 # shairing work-in-progress
 
 1. `localtunnel`
-   Easily share work on your local machine by punching a hole on your firewall
-   lower friction to get setup
-   ultra versatile
+
+   - Easily share work on your local machine by punching a hole on your firewall
+   - lower friction to get setup
+   - ultra versatile
 
    # setup:
 
+   ```bash
    npm i localtunnel - or npm install -g localtunnel
    lt --port portNumber or npx localtunnel --port 8000
    **_own subdomain_**
    lt --port 8000 --subdomain anyname
    **_ you can combine localtunnel with browsersync_**
    ctrl+c kills the process and you can no longer see the domain - throws error 404
+   ```
 
 2. `ngrok`
-   secure tunnel to your local machine
+
+   - secure tunnel to your local machine
 
    # setup:
 
+   ```bash
    signup
    instal ngrok
    install authtoken
    start your app
    ./ngrok http portNumber
+   ```
 
 3. `surge`
-   extreme simplicity
-   quickly host static files to public url no node.js files
-   no firewall hole
-   hosting persists
+
+   - extreme simplicity
+   - quickly host static files to public url no node.js files
+   - no firewall hole
+   - hosting persists
 
    # setup:
 
+   ```bash
    npm i -g surge
    surge
+   ```
 
 4. `vercel`
-   Quickly deploy node.js to the cloud
-   no need to keep your machine
+   - Quickly deploy node.js to the cloud
+   - no need to keep your machine
    # setup:
+   ```bash
    npm i -g vercel / npx vercel
    create start script
    vercel
+   ```
