@@ -47,7 +47,8 @@ Bower, npm, jspm, jam, volo
    npm i localtunnel - or npm install -g localtunnel
    lt --port portNumber or npx localtunnel --port 8000
    own subdomain
-   lt --port 8000 --subdomain anyname
+   lt --port 8000 --subdomain marty
+   npx localtunnel --port 8000 --subdomain marty
    **_ you can combine localtunnel with browsersync_**
    ctrl+c kills the process and you can no longer see the domain - throws error 404
    ```
@@ -117,3 +118,10 @@ Bower, npm, jspm, jam, volo
   - better documentation
   - easy to learn
   - simple
+
+```bash
+pre and post hooks
+```
+
+pre - any script with pre prefix followed by a word like `start` i.e `prestart` will run before `start`
+post - any script with pre prefix followed by a word like `start` i.e `poststart` will run after `start`
