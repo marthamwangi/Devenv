@@ -364,7 +364,7 @@ Ways to watch files
   `src buildScripts` watch everything in src and buildScripts
   `--color` adds color to the warning and errors
 
-- overridind eslint rules in `.eslintrc.json`
+- overriding eslint rules in `.eslintrc.json`
 
   ```bash
   no-console: 1
