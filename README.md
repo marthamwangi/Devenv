@@ -126,3 +126,50 @@ pre and post hooks
 
 pre - any script with pre prefix followed by a word like `start` i.e `prestart` will run before `start`
 post - any script with pre prefix followed by a word like `start` i.e `poststart` will run after `start`
+
+# Transpiling
+
+`Babel`
+
+- modern, standard-based js today
+- leverage full js-ecosystem
+- use experimental features
+- no type defs, automation required
+
+```bash
+@babel/preset-env
+```
+
+# babel configuratin styles
+
+- .babelrc
+
+  - not npm specific
+  - easier to read since its isolated
+
+- package.json
+  - one less file in your project
+
+`Typescript`
+
+- superset of javascript
+- enhanced autocompletion ~ type safety
+- safer refactoring
+- clearer intent
+- enhanced readability
+- additional non-standard features
+
+# build script js style
+
+- Build scripts are used to build the solution which will be a part of the entire continuous Integration cycle.
+- A build script is a file that is started by a build plan. The build script prepares output from generated files.
+  `Plain js`
+- no waiting for transpile = faster
+- no transpiler dependency
+
+  `Transpiled`
+
+- enjoy the latest features
+- consistent coding style
+- use the same linting rules everywhere
+- can eventually remove transpiler

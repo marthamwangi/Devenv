@@ -1,0 +1,17 @@
+{
+  "presets": ["@babel/preset-env"],
+  "env": {
+    //in production specify the browsers to use in production
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            //support all the browsers used by more than .25% people and are still supported by their creator
+            "targets": ">0.25%, not dead"
+          }
+        ]
+      ]
+    }
+  }
+}

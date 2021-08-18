@@ -1,11 +1,11 @@
 /**Creates an Express application. The express() function is a top-level function exported by the express module. */
-var express = require("express");
-var path = require("path");
+import express from "express";
+import path from "path";
 /**Open stuff like URLs, files, executables. Cross-platform. */
-var open = require("open");
-var port = 3000;
+import open from "open";
+const port = 3000;
 /**create an instance of express and set that to app*/
-var app = express();
+const app = express();
 /**tell express which routes it should handle */
 app.get("/", function (req, res) {
   /**Transfer the file at the given path. */
