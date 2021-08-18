@@ -89,3 +89,31 @@ Bower, npm, jspm, jam, volo
    create start script
    vercel
    ```
+
+# Automation
+
+`Grunt`
+
+- configuration over code
+- file oriented ~ writes files to the disk after each automation process
+- large plugin ecosystem
+
+  `Gulp`
+
+  - in-memory streams called pipes
+  - faster that grunt
+  - code over configuration
+  - large plugin ecosystem
+
+  `npm scripts`
+
+  - declared i package.json
+  - leverage your OS' command line
+    Directly use npm packages
+  - convection-based pre/post hooks
+  - leverage world's largest package manager
+  - no need for separate plugins
+  - simpler debugging
+  - better documentation
+  - easy to learn
+  - simple
