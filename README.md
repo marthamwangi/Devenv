@@ -547,3 +547,20 @@ To do that they would have to agree on the following:
 
 1. https://www.appveyor.com/
 2. create a configuration file `appveyor.yml` to your repository to tell Appveyor CI what to do.
+
+# Http calls
+
+1.  HTTP Call Approaches
+    1. Node
+    - http
+    - `request`
+    2. Browser
+    - XMLHttpRequest
+    - jQuery
+    - Framework-based like Angular based
+    - `Fetch`
+    3. Node & Browser (universal javascript)
+    - isomorphic-fetch
+    - xhr
+    - SuperAgent
+    - `Axios`
