@@ -390,3 +390,147 @@ modifying save from `"start": "babel-node buildScripts/srcServer.js",` to:
     "start": "npm-run-all --parallel open:src lint:watch",
   }
 ```
+
+# Testing and Continuous Intergration (CI)
+
+# Testing styles
+
+1. unit - single function or module
+2. Intergration - interaction between modules
+3. UI - Auotomate interactions with UI (tools: eg. `selenium`)
+
+# unit testing decisions
+
+1. Testing Framework `Mocha`
+
+   - Mocha
+   - Jasmine
+   - Tape
+   - QUnit
+   - AVA
+   - Jest
+
+2. Assertion libraries : an asertion is a declaration on what you expect `Chai`
+
+   - common libraries include
+     - chai
+     - espect
+     - should.js
+
+3. Helper libraries `JSDOM`
+
+   - JSDOM
+   - Cheerio - jsquery for the server
+
+4. where to run tests `Node`
+
+   - Browser - slower
+     - Karma, Testem
+   - Headless browser - browser with no visible UI
+     - headless chrome
+   - In-memory DOM - fast and quick to setup
+     - JSDOM
+
+5. where to place tests `Alongside`
+
+   - test folder (centralized)
+     - less "noise" in src folder
+     - deployment confusion
+     - inertia (a convention followed by many)
+   - (Alongside) the file under tests
+     - easy imports
+     - clear visibility
+     - convenient to open
+     - no recreating structure `src and test folder`
+     - easy move files
+
+6. when to run tests `upon save`
+   - Everytime you hit save
+     - rapid feedback
+     - Facilitate test driven development
+     - automatic = low friction
+     - increases test driven visiblity
+
+# Setup:
+
+1. create a file to configure tests. `testSetup.js`
+2. add a script that will run our test via Mocha
+   ```bash
+   "test":"mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\""
+   ```
+   `progress` is the reporter we want to use to determine how the test output should display
+   - other reporters include
+   1. spec
+   2. Dot Matrix
+   3. Nyan
+   4. Tap
+   5. landing strip
+   6. list
+   7. progress
+   8. Json
+   9. Json stream
+   10. min
+   11. doc
+   12. markdown
+   13. third party reporters
+   14. html reporters
+       `testSetup.js` we tell Mocha to run the configuration file we setup
+       `"src/**/*.test.js\` then Mocha should run any tests it finds in src directory and any subdirectory with `test.js` extension
+3. writew tests
+4. run test `upon save`
+   `"test:watch":"npm run test -- --watch"` and lastly add it to start
+   `"start": "npm-run-all --parallel open:src lint:watch test:watch",`
+
+# continuous intergration?
+
+> > Continuous integration is a software development process where developers integrate the new code they've written more frequently throughout the development cycle, adding it to the code base at least once a day.
+
+A `continuous integration server` offers the ability to do the following:
+
+> Run automatic builds, tests and releases in a single place
+> Deploy any version, anytime
+> Keep configuration orderly
+> Support plug-ins to enhance functionality
+> Monitor your project’s repository
+> Pull changes and perform tasks you defined for successful commit
+> Send feedback to the relevant project members with details of the build
+
+With continuous integration, each developer integrates their work with the main branch of source code at least once a day (or, preferably, multiple times a day). it:
+
+> confirm commits work as expected from different machines
+> continuous integration helps streamline the build process
+> results in higher-quality software and more predictable delivery schedules
+
+# why need The CI server
+
+- Forgot to commit new file
+- Forgot to update package.json
+- commit doesn't run cross-platform
+- node version conflicts
+- bad merge
+- din't run tests
+- catch mistakes quickly
+
+The following are some of the most popular continuous integration tools:
+
+`Jenkins`: A widely used open source continuous integration tool, Jenkins allows developers to automatically build, integrate and test code as soon as they commit it to the source repository, making it easier for developers to catch bugs early and deploy software faster. The docker plug-in is available on Jenkins.
+`Buildbot`: Buildbot can automate all aspects of the software development cycle. As a job scheduling system, it queues and executes jobs, and reports results.
+`Go`: What makes Go stand out from the crowd is the concept of pipelines, which makes the modeling of complex build workflows easy.
+`IBM UrbanCode Build`
+`Travis CI`: One of the oldest and most-trusted hosted solutions, it is also available in an on-premises version for the enterprise. It runs on windows
+`GitLab CI`: An integral part of the open source Rails project, GitLab CI is a free hosted service that provides detailed git repository management with features like access control, issue tracking, code reviews and more.
+`Appveyor` - windows support
+`SnapCI`
+`CircleCI`
+`Semaphore`
+
+# Decisions
+
+To do that they would have to agree on the following:
+
+1. Which CI to use: prefarably `Travis` and `Appveyor` to make sure it runs on MAC, Linux and Windows machines
+2. When to begin testing code integration
+3. How to test that the integration has been successful
+4. How to communicate the results to the team
+
+> Setup: Travis CI
