@@ -542,3 +542,8 @@ To do that they would have to agree on the following:
 1. https://www.travis-ci.com/
 2. create a configuration file `.travis.yml` to your repository to tell Travis CI what to do.
 3. commit changes
+
+# Setup: AppVeyor
+
+1. https://www.appveyor.com/
+2. create a configuration file `appveyor.yml` to your repository to tell Appveyor CI what to do.
