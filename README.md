@@ -144,13 +144,14 @@ post - any script with pre prefix followed by a word like `start` i.e `poststart
 
 # babel configuratin styles
 
-- .babelrc
+`.babelrc`
 
-  - not npm specific
-  - easier to read since its isolated
+- not npm specific
+- easier to read since its isolated
 
-- package.json
-  - one less file in your project
+`package.json`
+
+- one less file in your project
 
 `Typescript`
 
@@ -474,16 +475,19 @@ modifying save from `"start": "babel-node buildScripts/srcServer.js",` to:
    12. markdown
    13. third party reporters
    14. html reporters
-       `testSetup.js` we tell Mocha to run the configuration file we setup
-       `"src/**/*.test.js\` then Mocha should run any tests it finds in src directory and any subdirectory with `test.js` extension
-3. writew tests
+
+`testSetup.js` we tell Mocha to run the configuration file we setup
+`"src/**/*.test.js\` then Mocha should run any tests it finds in src directory and any subdirectory with `test.js` extension
+
+3. write tests
+
 4. run test `upon save`
    `"test:watch":"npm run test -- --watch"` and lastly add it to start
    `"start": "npm-run-all --parallel open:src lint:watch test:watch",`
 
 # continuous intergration?
 
-> > Continuous integration is a software development process where developers integrate the new code they've written more frequently throughout the development cycle, adding it to the code base at least once a day.
+> Continuous integration is a software development process where developers integrate the new code they've written more frequently throughout the development cycle, adding it to the code base at least once a day.
 
 A `continuous integration server` offers the ability to do the following:
 
@@ -513,16 +517,16 @@ With continuous integration, each developer integrates their work with the main 
 
 The following are some of the most popular continuous integration tools:
 
-`Jenkins`: A widely used open source continuous integration tool, Jenkins allows developers to automatically build, integrate and test code as soon as they commit it to the source repository, making it easier for developers to catch bugs early and deploy software faster. The docker plug-in is available on Jenkins.
-`Buildbot`: Buildbot can automate all aspects of the software development cycle. As a job scheduling system, it queues and executes jobs, and reports results.
-`Go`: What makes Go stand out from the crowd is the concept of pipelines, which makes the modeling of complex build workflows easy.
-`IBM UrbanCode Build`
-`Travis CI`: One of the oldest and most-trusted hosted solutions, it is also available in an on-premises version for the enterprise. It runs on windows
-`GitLab CI`: An integral part of the open source Rails project, GitLab CI is a free hosted service that provides detailed git repository management with features like access control, issue tracking, code reviews and more.
-`Appveyor` - windows support
-`SnapCI`
-`CircleCI`
-`Semaphore`
+1. `Jenkins`: A widely used open source continuous integration tool, Jenkins allows developers to automatically build, integrate and test code as soon as they commit it to the source repository, making it easier for developers to catch bugs early and deploy software faster. The docker plug-in is available on Jenkins.
+2. `Buildbot`: Buildbot can automate all aspects of the software development cycle. As a job scheduling system, it queues and executes jobs, and reports results.
+3. `Go`: What makes Go stand out from the crowd is the concept of pipelines, which makes the modeling of complex build workflows easy.
+4. `IBM UrbanCode Build`
+5. `Travis CI`: One of the oldest and most-trusted hosted solutions, it is also available in an on-premises version for the enterprise. It runs on windows
+6. `GitLab CI`: An integral part of the open source Rails project, GitLab CI is a free hosted service that provides detailed git repository management with features like access control, issue tracking, code reviews and more.
+7. `Appveyor` - windows support
+8. `SnapCI`
+9. `CircleCI`
+10. `Semaphore`
 
 # Decisions
 
@@ -533,4 +537,4 @@ To do that they would have to agree on the following:
 3. How to test that the integration has been successful
 4. How to communicate the results to the team
 
-> Setup: Travis CI
+> # Setup: Travis CI
