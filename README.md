@@ -537,7 +537,7 @@ To do that they would have to agree on the following:
 3. How to test that the integration has been successful
 4. How to communicate the results to the team
 
-> # Setup: Travis CI
+# Setup: Travis CI
 
 1. https://www.travis-ci.com/
 2. create a configuration file `.travis.yml` to your repository to tell Travis CI what to do.
