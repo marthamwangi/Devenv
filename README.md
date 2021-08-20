@@ -1,4 +1,4 @@
-# Javascript dev environment / seed /boilerplate / starter kit
+# Javascript dev environment / seed /boilerplate / starter kit / starter project
 
 # editorconfig
 
@@ -750,6 +750,84 @@ To do that they would have to agree on the following:
 
 > To prevent TrackJS from producing error noise in our error log we use conditionals in html to inject portions for diff env
 
-- inject the `TrackJS` code in the prod build using `EJS`
+- inject the `TrackJS` code in the `prod` build using `EJS`
   - store the `TrackJS` token in the webpack config
   - reference the token in `index.html` which is no longer a `html` file but an `ejs` changing the file to `.ejs` is optional
+
+# Production deploy and updates
+
+1. Separating the UI from the API
+
+   - Simple, lowrisk, UI only deploys
+   - separate concerns
+     - separate teams
+     - less to understands
+     - scale back-end separately
+   - cheap to host
+   - Serve UI via a content delivery network
+   - use the API tech that you like
+
+2. Hosting providers
+   - Where to host the app?
+     - aws
+     - azure
+     - heroku ~ API
+     - firebase
+     - GCP
+       > static files only
+     - Github pages
+     - Netlify
+     - surge ~ UI for static file
+
+- After separating The API on Heroku...we prepare the baseURL to hit the API `https://floating-sands-97854.herokuapp.com/` without forgetting the trailing slash `/` at the end
+- remove the API reference from `distServer`
+
+3. Automated deployment
+
+- The path to production
+  > npm start > npm run build > npm run deploy
+  - set up serge script
+  ```bash
+  "deploy":"surge ./dist"
+  ```
+
+4. Handling starter kit updates
+
+- Update projects
+- bug fixes
+
+# update approaches
+
+- `Github`
+
+  - host on Github
+  - Fork starter kit for new project
+  - pull changes from master
+
+- `Yeoman`
+
+  ```bash
+  npm install -g yo
+
+  1. commit
+  2. scaffold the existing project
+  3. Resolve conflicts manually
+
+  ```
+
+- `npm`
+  - Encapsulate kit in npm package
+  - update npm package to receive latest
+    # what to centralize?
+    - `buildscripts` with npm package
+    - `npm scripts in package.json` with call scripts in npm package
+    - `webpack.config files` with npm package
+    - `.eslintrc` with create preset
+    # what to decentralize?
+    - `.editorconfig`
+    - `.babelrc`
+    - `CI config`(.travis.yml and Appveyor.yml)
+    - `package reference` in package.json
+
+5. Inspiration for starterkits
+   - https://github.com/gianarb/awesome-angularjs

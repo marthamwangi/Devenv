@@ -2,7 +2,7 @@ export default function getBaseUrl() {
   // Note: Replace the production Heroku URL below with your URL.
   return getQueryStringParameterByName("useMockApi")
     ? "http://localhost:3001/"
-    : "/";
+    : "https://floating-sands-97854.herokuapp.com/";
 }
 
 function getQueryStringParameterByName(name, url) {
