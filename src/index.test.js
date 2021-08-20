@@ -17,13 +17,13 @@ describe("our first test", () => {
 });
 
 describe("index.html", () => {
-  it("should say hello", () => {
+  it("should have users", () => {
     /**The fs module enables interacting with the file system in a way modeled on standard POSIX functions. */
     const indexFile = fs.readFileSync("./src/index.html", "utf-8");
     const { JSDOM } = jsdom;
     const dom = new JSDOM(indexFile);
     const h1Element = dom.window.document.getElementsByTagName("h1")[0];
-    expect(h1Element.innerHTML).to.equal("Go queen...");
+    expect(h1Element.innerHTML).to.equal("Users");
     dom.window.close();
   });
 });
