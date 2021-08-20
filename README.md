@@ -653,3 +653,103 @@ To do that they would have to agree on the following:
    - delete
    - add
    - update
+
+# Project structure
+
+1. Directory structure and file naming
+2. Framework usage
+
+3. Testing
+4. mock API
+5. Automated deployment
+
+- codified decisions
+- interactive example of working with starter
+
+# The structure
+
+- Put JS in a .js file and reference it in a html
+- consider organizing by feature /authors /courses /studetnts etc.
+- Extract logic into 'POJOs' ~ Plain Old Javascript Objects
+
+# PRODUCTION BUILD
+
+1. Minification ~ speeding pageloads and saving bandwidth
+2. Sourcemap ~ for debugging in production
+
+> setup:
+
+- create a webpack config for production
+- prepare a dist server to serve the dist folder
+- prepare a build to configure the production build
+- modify baseUrl for production
+- automate the production build
+  ```dist
+  "clean-dist": "rimraf ./dist && mkdir dist",
+  "prebuild": "npm-run-all clean-dist test lint",
+  "build": "babel-node buildScripts/build.js",
+  "postbuild": "babel-node buildScripts/distServer.js",
+  ```
+- Dynamic HTML generation
+  - reference the bundle
+    > options
+    1. Hard code
+    2. Manipulate via node
+    3. `html-webpack-plugin`
+- update `webpack.config.prod` to use the `html-webpack-plugin`
+- remove `<script src="bundle.js"></script>` in src.index.html as its already referenced in `html-webpack-plugin` in `webpack.config.prod`
+- Bundle splitting
+
+  - speed initial page load
+  - avoid re-downloading all libraries
+
+# ways of bundle splitting
+
+1. split bundle per page
+2. separate third party lbrary code from app code
+3. do both
+
+- cache busting ~ Cache busting is a technique so that browsers can have long caches on files while having them reload files when they change
+
+# why bust cache?
+
+1. save http requests ~ speed page load and reduce bandwidth
+2. force request for latest version
+
+# setup:
+
+1. hash bundle filename
+2. generate html dynamically
+
+- generate a hash for busting in `webpack.config.prod` under `filename: "[name].[chunkhash].js"`...now the generated filenames will have a hash and the hash will be changed when a line of code is changed in a specific file and after re-build
+
+- Extract and minify css
+  in `webpack.config.prod` we add `import MiniCssExtractPlugin from "mini-css-extract-plugin";` produce hash for css files as well and reference the css using `MiniCssExtractPlugin.loader`
+
+- Error logging for users browsers during production
+  - `TrackJS` ~ specific to javascript
+  - Sentry
+  - New Relic
+  - Raygun
+
+# Decisions
+
+1. Error Metadata
+   - Browser
+   - stack trace
+   - previous actions
+   - custom API for enhanced tracking
+2. Notification & intergrations
+3. Analytics and filtering
+4. pricing
+
+# setup:
+
+- signup on trackJS
+- add tracking code to ensure its loaded before any js code
+
+> To prevent TrackJS from producing error noise in our error log we use conditionals in html to inject portions for diff env
+
+- inject the `TrackJS` code in the prod build using `EJS`
+  - store the `TrackJS` token in the webpack config
+  - reference the token in `index.html` which is no longer a `html` file but an `ejs` changing the file to `.ejs` is optional

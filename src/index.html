@@ -1,45 +1,35 @@
+<!--
+  **NOTE:** This is a template for index.html.
+  It uses ejs and HtmlWebpackPlugin to generate a different index.html for each environment.
+  htmlWebpackPlugin will dynamically add references to the scripts and styles that it bundles
+  to this file. The generated bundles have hash-based filenames,
+  so it's necessary to add the references dynamically.
+  For more info on ejs, see https://ejs.co.
+  For examples of using it with HtmlWebpackPlugin,
+  see https://github.com/jaketrent/html-webpack-template/blob/master/index.ejs
+  -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    #customers {
-      font-family: Arial, Helvetica, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    #customers td,
-    #customers th {
-      border: 1px solid #ddd;
-      padding: 8px;
-    }
-
-    #customers tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-    #customers tr:hover {
-      background-color: #ddd;
-    }
-
-    #customers th {
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: left;
-      background-color: #04AA6D;
-      color: white;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <!--
+      The htmlWebpackPlugin will parse the logic below so that trackJS is only added to the production version of index.html
+      (since only webpack.config.prod.js provides the trackJS token)
+      This is an example of how to add features to index.html for only one environment.
+      -->
+  <% if (htmlWebpackPlugin.options.trackJSToken) { %>
+    <!-- BEGIN TRACKJS -->
+    <script type="text/javascript">window._trackJs = { token: '<%=htmlWebpackPlugin.options.trackJSToken%>' };</script>
+    <script type="text/javascript" src="https://cdn.trackjs.com/releases/current/tracker.js"></script>
+    <!-- END TRACKJS -->
+    <% } %>
 </head>
 
 <body>
   <h1>Users</h1>
-  <table id="customers">
+  <table>
     <thead>
       <th>&nbsp;</th>
       <th>Id</th>
@@ -49,7 +39,6 @@
     </thead>
     <tbody id="users"></tbody>
   </table>
-  <script src="bundle.js"></script>
 </body>
 
 </html>

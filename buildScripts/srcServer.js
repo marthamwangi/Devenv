@@ -1,3 +1,4 @@
+/**This serves our src folder */
 /**Creates an Express application. The express() function is a top-level function exported by the express module. */
 import express from "express";
 import path from "path";
