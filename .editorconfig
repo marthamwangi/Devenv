@@ -6,6 +6,8 @@ indent_style = space
 #Set to a whole number defining the number of columns used for each indentation level and the width of soft tabs (when supported). If this equals tab, the indent_size shall be set to the tab size, which should be tab_width (if specified); else, the tab size set by the editor. The values are case insensitive.
  indent_size = 2
 #set to lf, cr, or crlf to control how line breaks are represented.
+#CR is the escape character \r and LF is the escape character \n
+#CR and LF is just end of line and new line 
 end_of_line = lf
 #set to latin1, utf-8, utf-8-bom, utf-16be or utf-16le to control the character set.
 charset = utf-8
