@@ -1,5 +1,5 @@
 {
-  "presets": ["@babel/preset-env"],
+  "presets": ["@babel/preset-env"], //for compiling ES2015+ syntax
   "env": {
     //in production specify the browsers to use in production
     "production": {
